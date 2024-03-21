@@ -11,6 +11,7 @@ import {
   InputAdornment,
   Link,
   IconButton,
+  FormGroup,
 } from "@mui/material";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
 
@@ -50,32 +51,39 @@ const Login = () => {
           noValidate
           autoComplete="on"
         >
-          <TextField fullWidth label="Имэйл хаягаа оруулна уу" id="fullWidth" />
-          <FormControl sx={{ m: 1, width: "100%" }} variant="outlined">
-            <InputLabel htmlFor="outlined-adornment-password">
-              Нууц үг
-            </InputLabel>
-            <OutlinedInput
-              id="outlined-adornment-password"
-              type={showPassword ? "text" : "password"}
-              endAdornment={
-                <InputAdornment position="end">
-                  <IconButton
-                    aria-label="toggle password visibility"
-                    onClick={handleClickShowPassword}
-                    onMouseDown={handleMouseDownPassword}
-                    edge="end"
-                  >
-                    {showPassword ? <VisibilityOff /> : <Visibility />}
-                  </IconButton>
-                </InputAdornment>
-              }
-              label="Password"
-            />
-          </FormControl>
-          <Link href="#" underline="none">
-            {"Нууг үг сэргээх"}
-          </Link>
+          <FormGroup>
+            <FormControl>
+              <TextField
+                fullWidth
+                // label="Имэйл хаягаа оруулна уу"
+                id="fullWidth"
+                placeholder="Имэйл хаягаа оруулна уу"
+              />
+            </FormControl>
+            <FormControl sx={{ mt: 3, width: "100%" }} variant="outlined">
+              <InputLabel>Нууц үг</InputLabel>
+              <OutlinedInput
+                id="outlined-adornment-password"
+                type={showPassword ? "text" : "password"}
+                endAdornment={
+                  <InputAdornment position="end">
+                    <IconButton
+                      aria-label="toggle password visibility"
+                      onClick={handleClickShowPassword}
+                      onMouseDown={handleMouseDownPassword}
+                      edge="end"
+                    >
+                      {showPassword ? <VisibilityOff /> : <Visibility />}
+                    </IconButton>
+                  </InputAdornment>
+                }
+                label="Password"
+              />
+            </FormControl>
+            <Link href="#" underline="none">
+              {"Нууг үг сэргээх"}
+            </Link>
+          </FormGroup>
         </Box>
         <Stack direction="column" spacing={6}>
           <Button

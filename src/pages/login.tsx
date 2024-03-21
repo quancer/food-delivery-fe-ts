@@ -1,8 +1,4 @@
-import Login from "../components/Login";
+import LoginComponents from "../components/login/LoginComponents";
 export default function Page() {
-  return (
-    <>
-      <Login />
-    </>
-  );
+  return <LoginComponents />;
 }

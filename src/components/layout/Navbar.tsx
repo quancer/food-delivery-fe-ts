@@ -11,7 +11,7 @@ import Container from "@mui/material/Container";
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
-import { Pinecone } from "./svg/PineconeLogo";
+import { Pinecone } from "../svg/PineconeLogo";
 import LocalGroceryStoreIcon from "@mui/icons-material/LocalGroceryStore";
 import PersonIcon from "@mui/icons-material/Person";
 const pages = ["Нүүр", "Хоолны цэс", "Хүргэлтийн бүс"];
@@ -100,6 +100,7 @@ export default function Navbar() {
               </Button>
             ))}
           </Box>
+
           <TextField id="outlined-basic" label="Хайх" variant="outlined" />
 
           <Button

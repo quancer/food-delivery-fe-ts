@@ -3,6 +3,7 @@ import Grid from "@mui/material/Grid"; // Grid version 1
 
 import { Stack, Container } from "@mui/system";
 import MediaCard from "@/components/MediaCard";
+import Showcase from "@/components/home/Showcase";
 export default function Home() {
   return (
     <>
@@ -13,6 +14,7 @@ export default function Home() {
         <link rel="icon" href="/logo.svg" />
       </Head>
       <main>
+        <Showcase />
         <Container maxWidth="lg" sx={{ padding: "20px 0" }}>
           <Grid container columnSpacing={3} rowSpacing={6}>
             {foods.map((item) => (
