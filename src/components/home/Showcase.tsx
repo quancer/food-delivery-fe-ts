@@ -22,13 +22,6 @@ const Showcase = () => {
         <Stack direction={"row"} alignItems={"center"} flexWrap={"nowrap"}>
           <Stack width={"400px"} color={"#fff"}>
             <Box sx={{ p: 2 }}>
-              {/* color: #FFF;
-                font-family: Poppins;
-                font-size: 55px;
-                font-style: normal;
-                font-weight: 600;
-                line-height: 90%; /* 49.5px
-            letter-spacing: 0.55px; */}
               <Typography
                 variant="h4"
                 sx={{
@@ -53,8 +46,6 @@ const Showcase = () => {
         {/* width: 443px;
         height: 438px; */}
         <Box width={"590px"} height={"430px"} position={"relative"}>
-          <img src="" alt="" />
-
           <Box position={"absolute"} top={0} left={0}>
             <CardMedia
               sx={{ height: "438px", width: "443px" }}
@@ -65,7 +56,7 @@ const Showcase = () => {
           </Box>
           <Box position={"absolute"} bottom={0} right={0}>
             <CardMedia
-              sx={{ height: "313px", width: "313px" }}
+              sx={{ height: "270px", width: "270px" }}
               image={
                 "https://s3-alpha-sig.figma.com/img/7e09/e5d0/2949632a6a2df2f49b384d2050707197?Expires=1711929600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=L4OKLufZsgDZFwT6sfMq5Vg6bvDfZJ9WxJph~mfFjqLHW1p0uUzKdBGrdd9ibTXqmawesXVRR0zu-ebp4Hz~Q1HJLkqPXVWa~5IDpH8~Nlcg7fXNWZERmWfdR33yJ-2hbRiie9K6gieHarHZLg2g9ZZRU3H4VoS-0r7y4Tv88fei2Mof-C1rVftb7qw6UaxDeSsxNO7F4x57LD3Yqaf1I7OfJnmgvUCIV4016tQImkkT88KurTeSFG9OpvaG-Pr0xmbEQ~OUKWBGqO7ZBTpjh~gxULysg~ScUwCMuUbf49jht6wnrG3AZqNnxvJFpUHCoGM~~wUF6tSPQNPjt3PhIQ__"
               }

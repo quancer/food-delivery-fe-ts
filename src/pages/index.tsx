@@ -1,9 +1,10 @@
 import Head from "next/head";
 import Grid from "@mui/material/Grid"; // Grid version 1
-
+import foods from "../utils/dummyFood";
 import { Stack, Container } from "@mui/system";
-import MediaCard from "@/components/MediaCard";
+import MediaCard from "@/components/card/MediaCard";
 import Showcase from "@/components/home/Showcase";
+import CategoryCards from "@/components/card/CategoryCards";
 export default function Home() {
   return (
     <>
@@ -15,137 +16,121 @@ export default function Home() {
       </Head>
       <main>
         <Showcase />
-        <Container maxWidth="lg" sx={{ padding: "20px 0" }}>
-          <Grid container columnSpacing={3} rowSpacing={6}>
-            {foods.map((item) => (
-              <Grid item xs={3}>
-                <MediaCard food={item} key={item.title} />
-              </Grid>
-            ))}
-          </Grid>
-          {/* <Stack
-            flexWrap="wrap"
-            direction={"row"}
-            // spacing={4}
-            justifyContent="space-between"
-          >
-            {foods.map((item) => (
-              <MediaCard food={item} key={item.title} />
-            ))}
-          </Stack> */}
-        </Container>
+        <CategoryCards category={"Salat"} />
+        <CategoryCards category={"Breakfast"} />
+        <CategoryCards category={"Dessert"} />
       </main>
     </>
   );
 }
 
-const foods = [
-  {
-    title: "Өглөөний цай",
-    image:
-      "https://s3-alpha-sig.figma.com/img/669a/97ce/f4ad7e823b2a1cb020f7b7e74bce1ed7?Expires=1711929600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=YhTTCWCIA1hIygHKbpmD7IxbFBdcQ7Sml-gpRwLv9dGBLZwRtcdFA6NKrdjiLZDqivKsoeAUFAeFvS9lw8oFH7RvvB76sIg8GNL5e1H6KHY4fFhTqMxj-tJeHJQXh8B4mp~5RKrQA6gfeMLk4boyz02ZNKUpX7~v1Z9STBHoV5Rb-vuOeAnijSF1~JNV4uxGz0E2DS9EEpIDeTSEQ2-zVxR3vTWejZlU6QWDESpgUqH3PCV~iZ1OYQ7N2qwZf1JbzRAEx9W-JsTx~lfuLGeVxdjlKsbylfSs4qZOwkbLEGR6~d6MfQcr10rZBmTsZ~6eTtVGb4tOIjfuhLKmyuUUKQ__",
-    ingeredient: `Lizards are a widespread group of squamate reptiles, with over 6,000
-          species, ranging across all continents except Antarctica`,
-    category: "Breakfast",
-    price: 12000,
-  },
-  {
-    title: "Өглөөний цай",
-    image:
-      "https://s3-alpha-sig.figma.com/img/669a/97ce/f4ad7e823b2a1cb020f7b7e74bce1ed7?Expires=1711929600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=YhTTCWCIA1hIygHKbpmD7IxbFBdcQ7Sml-gpRwLv9dGBLZwRtcdFA6NKrdjiLZDqivKsoeAUFAeFvS9lw8oFH7RvvB76sIg8GNL5e1H6KHY4fFhTqMxj-tJeHJQXh8B4mp~5RKrQA6gfeMLk4boyz02ZNKUpX7~v1Z9STBHoV5Rb-vuOeAnijSF1~JNV4uxGz0E2DS9EEpIDeTSEQ2-zVxR3vTWejZlU6QWDESpgUqH3PCV~iZ1OYQ7N2qwZf1JbzRAEx9W-JsTx~lfuLGeVxdjlKsbylfSs4qZOwkbLEGR6~d6MfQcr10rZBmTsZ~6eTtVGb4tOIjfuhLKmyuUUKQ__",
-    ingeredient: `Lizards are a widespread group of squamate reptiles, with over 6,000
-          species, ranging across all continents except Antarctica`,
-    category: "Breakfast",
-    price: 12000,
-  },
-  {
-    title: "Өглөөний цай",
-    image:
-      "https://s3-alpha-sig.figma.com/img/669a/97ce/f4ad7e823b2a1cb020f7b7e74bce1ed7?Expires=1711929600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=YhTTCWCIA1hIygHKbpmD7IxbFBdcQ7Sml-gpRwLv9dGBLZwRtcdFA6NKrdjiLZDqivKsoeAUFAeFvS9lw8oFH7RvvB76sIg8GNL5e1H6KHY4fFhTqMxj-tJeHJQXh8B4mp~5RKrQA6gfeMLk4boyz02ZNKUpX7~v1Z9STBHoV5Rb-vuOeAnijSF1~JNV4uxGz0E2DS9EEpIDeTSEQ2-zVxR3vTWejZlU6QWDESpgUqH3PCV~iZ1OYQ7N2qwZf1JbzRAEx9W-JsTx~lfuLGeVxdjlKsbylfSs4qZOwkbLEGR6~d6MfQcr10rZBmTsZ~6eTtVGb4tOIjfuhLKmyuUUKQ__",
-    ingeredient: `Lizards are a widespread group of squamate reptiles, with over 6,000
-          species, ranging across all continents except Antarctica`,
-    category: "Breakfast",
-    price: 12000,
-  },
-  {
-    title: "Өглөөний цай",
-    image:
-      "https://s3-alpha-sig.figma.com/img/669a/97ce/f4ad7e823b2a1cb020f7b7e74bce1ed7?Expires=1711929600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=YhTTCWCIA1hIygHKbpmD7IxbFBdcQ7Sml-gpRwLv9dGBLZwRtcdFA6NKrdjiLZDqivKsoeAUFAeFvS9lw8oFH7RvvB76sIg8GNL5e1H6KHY4fFhTqMxj-tJeHJQXh8B4mp~5RKrQA6gfeMLk4boyz02ZNKUpX7~v1Z9STBHoV5Rb-vuOeAnijSF1~JNV4uxGz0E2DS9EEpIDeTSEQ2-zVxR3vTWejZlU6QWDESpgUqH3PCV~iZ1OYQ7N2qwZf1JbzRAEx9W-JsTx~lfuLGeVxdjlKsbylfSs4qZOwkbLEGR6~d6MfQcr10rZBmTsZ~6eTtVGb4tOIjfuhLKmyuUUKQ__",
-    ingeredient: `Lizards are a widespread group of squamate reptiles, with over 6,000
-          species, ranging across all continents except Antarctica`,
-    category: "Breakfast",
-    price: 12000,
-  },
-  {
-    title: "Өглөөний цай",
-    image:
-      "https://s3-alpha-sig.figma.com/img/669a/97ce/f4ad7e823b2a1cb020f7b7e74bce1ed7?Expires=1711929600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=YhTTCWCIA1hIygHKbpmD7IxbFBdcQ7Sml-gpRwLv9dGBLZwRtcdFA6NKrdjiLZDqivKsoeAUFAeFvS9lw8oFH7RvvB76sIg8GNL5e1H6KHY4fFhTqMxj-tJeHJQXh8B4mp~5RKrQA6gfeMLk4boyz02ZNKUpX7~v1Z9STBHoV5Rb-vuOeAnijSF1~JNV4uxGz0E2DS9EEpIDeTSEQ2-zVxR3vTWejZlU6QWDESpgUqH3PCV~iZ1OYQ7N2qwZf1JbzRAEx9W-JsTx~lfuLGeVxdjlKsbylfSs4qZOwkbLEGR6~d6MfQcr10rZBmTsZ~6eTtVGb4tOIjfuhLKmyuUUKQ__",
-    ingeredient: `Lizards are a widespread group of squamate reptiles, with over 6,000
-          species, ranging across all continents except Antarctica`,
-    category: "Breakfast",
-    price: 12000,
-  },
-  {
-    title: "Өглөөний цай",
-    image:
-      "https://s3-alpha-sig.figma.com/img/669a/97ce/f4ad7e823b2a1cb020f7b7e74bce1ed7?Expires=1711929600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=YhTTCWCIA1hIygHKbpmD7IxbFBdcQ7Sml-gpRwLv9dGBLZwRtcdFA6NKrdjiLZDqivKsoeAUFAeFvS9lw8oFH7RvvB76sIg8GNL5e1H6KHY4fFhTqMxj-tJeHJQXh8B4mp~5RKrQA6gfeMLk4boyz02ZNKUpX7~v1Z9STBHoV5Rb-vuOeAnijSF1~JNV4uxGz0E2DS9EEpIDeTSEQ2-zVxR3vTWejZlU6QWDESpgUqH3PCV~iZ1OYQ7N2qwZf1JbzRAEx9W-JsTx~lfuLGeVxdjlKsbylfSs4qZOwkbLEGR6~d6MfQcr10rZBmTsZ~6eTtVGb4tOIjfuhLKmyuUUKQ__",
-    ingeredient: `Lizards are a widespread group of squamate reptiles, with over 6,000
-          species, ranging across all continents except Antarctica`,
-    category: "Breakfast",
-    price: 12000,
-  },
-  {
-    title: "Өглөөний цай",
-    image:
-      "https://s3-alpha-sig.figma.com/img/669a/97ce/f4ad7e823b2a1cb020f7b7e74bce1ed7?Expires=1711929600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=YhTTCWCIA1hIygHKbpmD7IxbFBdcQ7Sml-gpRwLv9dGBLZwRtcdFA6NKrdjiLZDqivKsoeAUFAeFvS9lw8oFH7RvvB76sIg8GNL5e1H6KHY4fFhTqMxj-tJeHJQXh8B4mp~5RKrQA6gfeMLk4boyz02ZNKUpX7~v1Z9STBHoV5Rb-vuOeAnijSF1~JNV4uxGz0E2DS9EEpIDeTSEQ2-zVxR3vTWejZlU6QWDESpgUqH3PCV~iZ1OYQ7N2qwZf1JbzRAEx9W-JsTx~lfuLGeVxdjlKsbylfSs4qZOwkbLEGR6~d6MfQcr10rZBmTsZ~6eTtVGb4tOIjfuhLKmyuUUKQ__",
-    ingeredient: `Lizards are a widespread group of squamate reptiles, with over 6,000
-          species, ranging across all continents except Antarctica`,
-    category: "Breakfast",
-    price: 12000,
-  },
-  {
-    title: "Өглөөний цай",
-    image:
-      "https://s3-alpha-sig.figma.com/img/669a/97ce/f4ad7e823b2a1cb020f7b7e74bce1ed7?Expires=1711929600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=YhTTCWCIA1hIygHKbpmD7IxbFBdcQ7Sml-gpRwLv9dGBLZwRtcdFA6NKrdjiLZDqivKsoeAUFAeFvS9lw8oFH7RvvB76sIg8GNL5e1H6KHY4fFhTqMxj-tJeHJQXh8B4mp~5RKrQA6gfeMLk4boyz02ZNKUpX7~v1Z9STBHoV5Rb-vuOeAnijSF1~JNV4uxGz0E2DS9EEpIDeTSEQ2-zVxR3vTWejZlU6QWDESpgUqH3PCV~iZ1OYQ7N2qwZf1JbzRAEx9W-JsTx~lfuLGeVxdjlKsbylfSs4qZOwkbLEGR6~d6MfQcr10rZBmTsZ~6eTtVGb4tOIjfuhLKmyuUUKQ__",
-    ingeredient: `Lizards are a widespread group of squamate reptiles, with over 6,000
-          species, ranging across all continents except Antarctica`,
-    category: "Breakfast",
-    price: 12000,
-  },
-  {
-    title: "Өглөөний цай",
-    image:
-      "https://s3-alpha-sig.figma.com/img/669a/97ce/f4ad7e823b2a1cb020f7b7e74bce1ed7?Expires=1711929600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=YhTTCWCIA1hIygHKbpmD7IxbFBdcQ7Sml-gpRwLv9dGBLZwRtcdFA6NKrdjiLZDqivKsoeAUFAeFvS9lw8oFH7RvvB76sIg8GNL5e1H6KHY4fFhTqMxj-tJeHJQXh8B4mp~5RKrQA6gfeMLk4boyz02ZNKUpX7~v1Z9STBHoV5Rb-vuOeAnijSF1~JNV4uxGz0E2DS9EEpIDeTSEQ2-zVxR3vTWejZlU6QWDESpgUqH3PCV~iZ1OYQ7N2qwZf1JbzRAEx9W-JsTx~lfuLGeVxdjlKsbylfSs4qZOwkbLEGR6~d6MfQcr10rZBmTsZ~6eTtVGb4tOIjfuhLKmyuUUKQ__",
-    ingeredient: `Lizards are a widespread group of squamate reptiles, with over 6,000
-          species, ranging across all continents except Antarctica`,
-    category: "Breakfast",
-    price: 12000,
-  },
-  {
-    title: "Өглөөний цай",
-    image:
-      "https://s3-alpha-sig.figma.com/img/669a/97ce/f4ad7e823b2a1cb020f7b7e74bce1ed7?Expires=1711929600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=YhTTCWCIA1hIygHKbpmD7IxbFBdcQ7Sml-gpRwLv9dGBLZwRtcdFA6NKrdjiLZDqivKsoeAUFAeFvS9lw8oFH7RvvB76sIg8GNL5e1H6KHY4fFhTqMxj-tJeHJQXh8B4mp~5RKrQA6gfeMLk4boyz02ZNKUpX7~v1Z9STBHoV5Rb-vuOeAnijSF1~JNV4uxGz0E2DS9EEpIDeTSEQ2-zVxR3vTWejZlU6QWDESpgUqH3PCV~iZ1OYQ7N2qwZf1JbzRAEx9W-JsTx~lfuLGeVxdjlKsbylfSs4qZOwkbLEGR6~d6MfQcr10rZBmTsZ~6eTtVGb4tOIjfuhLKmyuUUKQ__",
-    ingeredient: `Lizards are a widespread group of squamate reptiles, with over 6,000
-          species, ranging across all continents except Antarctica`,
-    category: "Breakfast",
-    price: 12000,
-  },
-  {
-    title: "Өглөөний цай",
-    image:
-      "https://s3-alpha-sig.figma.com/img/669a/97ce/f4ad7e823b2a1cb020f7b7e74bce1ed7?Expires=1711929600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=YhTTCWCIA1hIygHKbpmD7IxbFBdcQ7Sml-gpRwLv9dGBLZwRtcdFA6NKrdjiLZDqivKsoeAUFAeFvS9lw8oFH7RvvB76sIg8GNL5e1H6KHY4fFhTqMxj-tJeHJQXh8B4mp~5RKrQA6gfeMLk4boyz02ZNKUpX7~v1Z9STBHoV5Rb-vuOeAnijSF1~JNV4uxGz0E2DS9EEpIDeTSEQ2-zVxR3vTWejZlU6QWDESpgUqH3PCV~iZ1OYQ7N2qwZf1JbzRAEx9W-JsTx~lfuLGeVxdjlKsbylfSs4qZOwkbLEGR6~d6MfQcr10rZBmTsZ~6eTtVGb4tOIjfuhLKmyuUUKQ__",
-    ingeredient: `Lizards are a widespread group of squamate reptiles, with over 6,000
-          species, ranging across all continents except Antarctica`,
-    category: "Breakfast",
-    price: 12000,
-  },
-  {
-    title: "Өглөөний цай",
-    image:
-      "https://s3-alpha-sig.figma.com/img/669a/97ce/f4ad7e823b2a1cb020f7b7e74bce1ed7?Expires=1711929600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=YhTTCWCIA1hIygHKbpmD7IxbFBdcQ7Sml-gpRwLv9dGBLZwRtcdFA6NKrdjiLZDqivKsoeAUFAeFvS9lw8oFH7RvvB76sIg8GNL5e1H6KHY4fFhTqMxj-tJeHJQXh8B4mp~5RKrQA6gfeMLk4boyz02ZNKUpX7~v1Z9STBHoV5Rb-vuOeAnijSF1~JNV4uxGz0E2DS9EEpIDeTSEQ2-zVxR3vTWejZlU6QWDESpgUqH3PCV~iZ1OYQ7N2qwZf1JbzRAEx9W-JsTx~lfuLGeVxdjlKsbylfSs4qZOwkbLEGR6~d6MfQcr10rZBmTsZ~6eTtVGb4tOIjfuhLKmyuUUKQ__",
-    ingeredient: `Lizards are a widespread group of squamate reptiles, with over 6,000
-          species, ranging across all continents except Antarctica`,
-    category: "Breakfast",
-    price: 12000,
-  },
-];
+// const foods = [
+//   {
+//     title: "Өглөөний цай",
+//     image:
+//       "https://s3-alpha-sig.figma.com/img/669a/97ce/f4ad7e823b2a1cb020f7b7e74bce1ed7?Expires=1711929600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=YhTTCWCIA1hIygHKbpmD7IxbFBdcQ7Sml-gpRwLv9dGBLZwRtcdFA6NKrdjiLZDqivKsoeAUFAeFvS9lw8oFH7RvvB76sIg8GNL5e1H6KHY4fFhTqMxj-tJeHJQXh8B4mp~5RKrQA6gfeMLk4boyz02ZNKUpX7~v1Z9STBHoV5Rb-vuOeAnijSF1~JNV4uxGz0E2DS9EEpIDeTSEQ2-zVxR3vTWejZlU6QWDESpgUqH3PCV~iZ1OYQ7N2qwZf1JbzRAEx9W-JsTx~lfuLGeVxdjlKsbylfSs4qZOwkbLEGR6~d6MfQcr10rZBmTsZ~6eTtVGb4tOIjfuhLKmyuUUKQ__",
+//     ingeredient: `Lizards are a widespread group of squamate reptiles, with over 6,000
+//           species, ranging across all continents except Antarctica`,
+//     category: "Breakfast",
+//     price: 12000,
+//   },
+//   {
+//     title: "Өглөөний цай",
+//     image:
+//       "https://s3-alpha-sig.figma.com/img/669a/97ce/f4ad7e823b2a1cb020f7b7e74bce1ed7?Expires=1711929600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=YhTTCWCIA1hIygHKbpmD7IxbFBdcQ7Sml-gpRwLv9dGBLZwRtcdFA6NKrdjiLZDqivKsoeAUFAeFvS9lw8oFH7RvvB76sIg8GNL5e1H6KHY4fFhTqMxj-tJeHJQXh8B4mp~5RKrQA6gfeMLk4boyz02ZNKUpX7~v1Z9STBHoV5Rb-vuOeAnijSF1~JNV4uxGz0E2DS9EEpIDeTSEQ2-zVxR3vTWejZlU6QWDESpgUqH3PCV~iZ1OYQ7N2qwZf1JbzRAEx9W-JsTx~lfuLGeVxdjlKsbylfSs4qZOwkbLEGR6~d6MfQcr10rZBmTsZ~6eTtVGb4tOIjfuhLKmyuUUKQ__",
+//     ingeredient: `Lizards are a widespread group of squamate reptiles, with over 6,000
+//           species, ranging across all continents except Antarctica`,
+//     category: "Breakfast",
+//     price: 12000,
+//   },
+//   {
+//     title: "Өглөөний цай",
+//     image:
+//       "https://s3-alpha-sig.figma.com/img/669a/97ce/f4ad7e823b2a1cb020f7b7e74bce1ed7?Expires=1711929600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=YhTTCWCIA1hIygHKbpmD7IxbFBdcQ7Sml-gpRwLv9dGBLZwRtcdFA6NKrdjiLZDqivKsoeAUFAeFvS9lw8oFH7RvvB76sIg8GNL5e1H6KHY4fFhTqMxj-tJeHJQXh8B4mp~5RKrQA6gfeMLk4boyz02ZNKUpX7~v1Z9STBHoV5Rb-vuOeAnijSF1~JNV4uxGz0E2DS9EEpIDeTSEQ2-zVxR3vTWejZlU6QWDESpgUqH3PCV~iZ1OYQ7N2qwZf1JbzRAEx9W-JsTx~lfuLGeVxdjlKsbylfSs4qZOwkbLEGR6~d6MfQcr10rZBmTsZ~6eTtVGb4tOIjfuhLKmyuUUKQ__",
+//     ingeredient: `Lizards are a widespread group of squamate reptiles, with over 6,000
+//           species, ranging across all continents except Antarctica`,
+//     category: "Breakfast",
+//     price: 12000,
+//   },
+//   {
+//     title: "Өглөөний цай",
+//     image:
+//       "https://s3-alpha-sig.figma.com/img/669a/97ce/f4ad7e823b2a1cb020f7b7e74bce1ed7?Expires=1711929600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=YhTTCWCIA1hIygHKbpmD7IxbFBdcQ7Sml-gpRwLv9dGBLZwRtcdFA6NKrdjiLZDqivKsoeAUFAeFvS9lw8oFH7RvvB76sIg8GNL5e1H6KHY4fFhTqMxj-tJeHJQXh8B4mp~5RKrQA6gfeMLk4boyz02ZNKUpX7~v1Z9STBHoV5Rb-vuOeAnijSF1~JNV4uxGz0E2DS9EEpIDeTSEQ2-zVxR3vTWejZlU6QWDESpgUqH3PCV~iZ1OYQ7N2qwZf1JbzRAEx9W-JsTx~lfuLGeVxdjlKsbylfSs4qZOwkbLEGR6~d6MfQcr10rZBmTsZ~6eTtVGb4tOIjfuhLKmyuUUKQ__",
+//     ingeredient: `Lizards are a widespread group of squamate reptiles, with over 6,000
+//           species, ranging across all continents except Antarctica`,
+//     category: "Breakfast",
+//     price: 12000,
+//   },
+//   {
+//     title: "Өглөөний цай",
+//     image:
+//       "https://s3-alpha-sig.figma.com/img/669a/97ce/f4ad7e823b2a1cb020f7b7e74bce1ed7?Expires=1711929600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=YhTTCWCIA1hIygHKbpmD7IxbFBdcQ7Sml-gpRwLv9dGBLZwRtcdFA6NKrdjiLZDqivKsoeAUFAeFvS9lw8oFH7RvvB76sIg8GNL5e1H6KHY4fFhTqMxj-tJeHJQXh8B4mp~5RKrQA6gfeMLk4boyz02ZNKUpX7~v1Z9STBHoV5Rb-vuOeAnijSF1~JNV4uxGz0E2DS9EEpIDeTSEQ2-zVxR3vTWejZlU6QWDESpgUqH3PCV~iZ1OYQ7N2qwZf1JbzRAEx9W-JsTx~lfuLGeVxdjlKsbylfSs4qZOwkbLEGR6~d6MfQcr10rZBmTsZ~6eTtVGb4tOIjfuhLKmyuUUKQ__",
+//     ingeredient: `Lizards are a widespread group of squamate reptiles, with over 6,000
+//           species, ranging across all continents except Antarctica`,
+//     category: "Breakfast",
+//     price: 12000,
+//   },
+//   {
+//     title: "Өглөөний цай",
+//     image:
+//       "https://s3-alpha-sig.figma.com/img/669a/97ce/f4ad7e823b2a1cb020f7b7e74bce1ed7?Expires=1711929600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=YhTTCWCIA1hIygHKbpmD7IxbFBdcQ7Sml-gpRwLv9dGBLZwRtcdFA6NKrdjiLZDqivKsoeAUFAeFvS9lw8oFH7RvvB76sIg8GNL5e1H6KHY4fFhTqMxj-tJeHJQXh8B4mp~5RKrQA6gfeMLk4boyz02ZNKUpX7~v1Z9STBHoV5Rb-vuOeAnijSF1~JNV4uxGz0E2DS9EEpIDeTSEQ2-zVxR3vTWejZlU6QWDESpgUqH3PCV~iZ1OYQ7N2qwZf1JbzRAEx9W-JsTx~lfuLGeVxdjlKsbylfSs4qZOwkbLEGR6~d6MfQcr10rZBmTsZ~6eTtVGb4tOIjfuhLKmyuUUKQ__",
+//     ingeredient: `Lizards are a widespread group of squamate reptiles, with over 6,000
+//           species, ranging across all continents except Antarctica`,
+//     category: "Breakfast",
+//     price: 12000,
+//   },
+//   {
+//     title: "Өглөөний цай",
+//     image:
+//       "https://s3-alpha-sig.figma.com/img/669a/97ce/f4ad7e823b2a1cb020f7b7e74bce1ed7?Expires=1711929600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=YhTTCWCIA1hIygHKbpmD7IxbFBdcQ7Sml-gpRwLv9dGBLZwRtcdFA6NKrdjiLZDqivKsoeAUFAeFvS9lw8oFH7RvvB76sIg8GNL5e1H6KHY4fFhTqMxj-tJeHJQXh8B4mp~5RKrQA6gfeMLk4boyz02ZNKUpX7~v1Z9STBHoV5Rb-vuOeAnijSF1~JNV4uxGz0E2DS9EEpIDeTSEQ2-zVxR3vTWejZlU6QWDESpgUqH3PCV~iZ1OYQ7N2qwZf1JbzRAEx9W-JsTx~lfuLGeVxdjlKsbylfSs4qZOwkbLEGR6~d6MfQcr10rZBmTsZ~6eTtVGb4tOIjfuhLKmyuUUKQ__",
+//     ingeredient: `Lizards are a widespread group of squamate reptiles, with over 6,000
+//           species, ranging across all continents except Antarctica`,
+//     category: "Breakfast",
+//     price: 12000,
+//   },
+//   {
+//     title: "Өглөөний цай",
+//     image:
+//       "https://s3-alpha-sig.figma.com/img/669a/97ce/f4ad7e823b2a1cb020f7b7e74bce1ed7?Expires=1711929600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=YhTTCWCIA1hIygHKbpmD7IxbFBdcQ7Sml-gpRwLv9dGBLZwRtcdFA6NKrdjiLZDqivKsoeAUFAeFvS9lw8oFH7RvvB76sIg8GNL5e1H6KHY4fFhTqMxj-tJeHJQXh8B4mp~5RKrQA6gfeMLk4boyz02ZNKUpX7~v1Z9STBHoV5Rb-vuOeAnijSF1~JNV4uxGz0E2DS9EEpIDeTSEQ2-zVxR3vTWejZlU6QWDESpgUqH3PCV~iZ1OYQ7N2qwZf1JbzRAEx9W-JsTx~lfuLGeVxdjlKsbylfSs4qZOwkbLEGR6~d6MfQcr10rZBmTsZ~6eTtVGb4tOIjfuhLKmyuUUKQ__",
+//     ingeredient: `Lizards are a widespread group of squamate reptiles, with over 6,000
+//           species, ranging across all continents except Antarctica`,
+//     category: "Breakfast",
+//     price: 12000,
+//   },
+//   {
+//     title: "Өглөөний цай",
+//     image:
+//       "https://s3-alpha-sig.figma.com/img/669a/97ce/f4ad7e823b2a1cb020f7b7e74bce1ed7?Expires=1711929600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=YhTTCWCIA1hIygHKbpmD7IxbFBdcQ7Sml-gpRwLv9dGBLZwRtcdFA6NKrdjiLZDqivKsoeAUFAeFvS9lw8oFH7RvvB76sIg8GNL5e1H6KHY4fFhTqMxj-tJeHJQXh8B4mp~5RKrQA6gfeMLk4boyz02ZNKUpX7~v1Z9STBHoV5Rb-vuOeAnijSF1~JNV4uxGz0E2DS9EEpIDeTSEQ2-zVxR3vTWejZlU6QWDESpgUqH3PCV~iZ1OYQ7N2qwZf1JbzRAEx9W-JsTx~lfuLGeVxdjlKsbylfSs4qZOwkbLEGR6~d6MfQcr10rZBmTsZ~6eTtVGb4tOIjfuhLKmyuUUKQ__",
+//     ingeredient: `Lizards are a widespread group of squamate reptiles, with over 6,000
+//           species, ranging across all continents except Antarctica`,
+//     category: "Breakfast",
+//     price: 12000,
+//   },
+//   {
+//     title: "Өглөөний цай",
+//     image:
+//       "https://s3-alpha-sig.figma.com/img/669a/97ce/f4ad7e823b2a1cb020f7b7e74bce1ed7?Expires=1711929600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=YhTTCWCIA1hIygHKbpmD7IxbFBdcQ7Sml-gpRwLv9dGBLZwRtcdFA6NKrdjiLZDqivKsoeAUFAeFvS9lw8oFH7RvvB76sIg8GNL5e1H6KHY4fFhTqMxj-tJeHJQXh8B4mp~5RKrQA6gfeMLk4boyz02ZNKUpX7~v1Z9STBHoV5Rb-vuOeAnijSF1~JNV4uxGz0E2DS9EEpIDeTSEQ2-zVxR3vTWejZlU6QWDESpgUqH3PCV~iZ1OYQ7N2qwZf1JbzRAEx9W-JsTx~lfuLGeVxdjlKsbylfSs4qZOwkbLEGR6~d6MfQcr10rZBmTsZ~6eTtVGb4tOIjfuhLKmyuUUKQ__",
+//     ingeredient: `Lizards are a widespread group of squamate reptiles, with over 6,000
+//           species, ranging across all continents except Antarctica`,
+//     category: "Breakfast",
+//     price: 12000,
+//   },
+//   {
+//     title: "Өглөөний цай",
+//     image:
+//       "https://s3-alpha-sig.figma.com/img/669a/97ce/f4ad7e823b2a1cb020f7b7e74bce1ed7?Expires=1711929600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=YhTTCWCIA1hIygHKbpmD7IxbFBdcQ7Sml-gpRwLv9dGBLZwRtcdFA6NKrdjiLZDqivKsoeAUFAeFvS9lw8oFH7RvvB76sIg8GNL5e1H6KHY4fFhTqMxj-tJeHJQXh8B4mp~5RKrQA6gfeMLk4boyz02ZNKUpX7~v1Z9STBHoV5Rb-vuOeAnijSF1~JNV4uxGz0E2DS9EEpIDeTSEQ2-zVxR3vTWejZlU6QWDESpgUqH3PCV~iZ1OYQ7N2qwZf1JbzRAEx9W-JsTx~lfuLGeVxdjlKsbylfSs4qZOwkbLEGR6~d6MfQcr10rZBmTsZ~6eTtVGb4tOIjfuhLKmyuUUKQ__",
+//     ingeredient: `Lizards are a widespread group of squamate reptiles, with over 6,000
+//           species, ranging across all continents except Antarctica`,
+//     category: "Breakfast",
+//     price: 12000,
+//   },
+//   {
+//     title: "Өглөөний цай",
+//     image:
+//       "https://s3-alpha-sig.figma.com/img/669a/97ce/f4ad7e823b2a1cb020f7b7e74bce1ed7?Expires=1711929600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=YhTTCWCIA1hIygHKbpmD7IxbFBdcQ7Sml-gpRwLv9dGBLZwRtcdFA6NKrdjiLZDqivKsoeAUFAeFvS9lw8oFH7RvvB76sIg8GNL5e1H6KHY4fFhTqMxj-tJeHJQXh8B4mp~5RKrQA6gfeMLk4boyz02ZNKUpX7~v1Z9STBHoV5Rb-vuOeAnijSF1~JNV4uxGz0E2DS9EEpIDeTSEQ2-zVxR3vTWejZlU6QWDESpgUqH3PCV~iZ1OYQ7N2qwZf1JbzRAEx9W-JsTx~lfuLGeVxdjlKsbylfSs4qZOwkbLEGR6~d6MfQcr10rZBmTsZ~6eTtVGb4tOIjfuhLKmyuUUKQ__",
+//     ingeredient: `Lizards are a widespread group of squamate reptiles, with over 6,000
+//           species, ranging across all continents except Antarctica`,
+//     category: "Breakfast",
+//     price: 12000,
+//   },
+// ];
