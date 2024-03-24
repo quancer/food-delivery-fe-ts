@@ -5,7 +5,6 @@ const Cards = ({ category }: { category: string }) => {
   const categoryFoods = foods.filter(
     (item, index) => item.category == category
   );
-  console.log("cards", categoryFoods, foods, category);
   return (
     <Grid container columnSpacing={3} rowSpacing={6}>
       {categoryFoods.map((item, index) => (

@@ -9,15 +9,16 @@ import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import InboxIcon from "@mui/icons-material/MoveToInbox";
-import { CardMedia, IconButton, Typography } from "@mui/material";
+import { AppBar, CardMedia, IconButton, Typography } from "@mui/material";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { CustomContext } from "@/context/ShoppingCard";
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
 import CloseIcon from "@mui/icons-material/Close";
-
+import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import Badge, { BadgeProps } from "@mui/material/Badge";
 import { styled } from "@mui/material/styles";
+
 import MailIcon from "@mui/icons-material/Mail";
 import { Stack } from "@mui/system";
 const StyledBadge = styled(Badge)<BadgeProps>(({ theme }) => ({
@@ -62,68 +63,97 @@ const ShoppingDrawer = () => {
   const toggleDrawer = (newOpen: boolean) => () => {
     setOpen(newOpen);
   };
-
+  let sum = 0;
+  foodId.forEach((num) => {
+    sum += num.price * num.count;
+  });
+  console.log("sum", sum);
   const DrawerList = (
     <Stack
       sx={{ width: "600px" }}
       role="presentation"
       onClick={toggleDrawer(false)}
+      p="26px"
+      spacing={"20px"}
     >
-      {foodId.map((food, index) => {
-        return (
-          <div key={index}>
-            <Box sx={style}>
+      <Stack
+        direction={"row"}
+        spacing="171px"
+        justifyContent={"flex-start"}
+        alignItems="center"
+      >
+        <ChevronLeftIcon />
+        <Typography fontSize={"20px"} fontFamily="Poppins" fontWeight={"900"}>
+          {"Таны сагс"}
+        </Typography>
+      </Stack>
+      <Divider />
+      <Stack>
+        {foodId.map((food, index) => {
+          return (
+            <Stack direction={"row"} key={index}>
               <Stack
                 direction={"row"}
                 alignItems={"center"}
                 justifyContent={"space-between"}
                 flexWrap={"nowrap"}
                 spacing="33px"
+                sx={{ padding: "16px" }}
+                position="relative"
+                width={"100%"}
               >
                 <CardMedia
-                  sx={{ height: "150px", width: "150px" }}
+                  sx={{ height: "100%", width: "50%" }}
                   image={food.image}
                   title="green iguana"
                 />
-                <Stack width={"384px"} spacing={"32px"}>
+                <Stack width={"50%"} spacing={"8px"} alignItems="flex-start">
                   <Stack>
-                    <Typography sx={{ fontSize: "28px", fontWeight: "700" }}>
+                    <Typography
+                      sx={{
+                        fontFamily: "Poppins",
+                        fontSize: "18px",
+                        fontWeight: "600",
+                      }}
+                    >
                       {food.title}
                     </Typography>
-                    <Typography sx={{ ...subTitle, color: "#18BA51" }}>
+                    <Typography
+                      sx={{
+                        fontFamily: "Poppins",
+                        fontSize: "18px",
+                        fontWeight: "600",
+                        color: "#18BA51",
+                      }}
+                    >
                       {food.price + "₮"}
                     </Typography>
                   </Stack>
-                  <Stack spacing={"12px"}>
-                    <Typography sx={subTitle}>{"Орц:"}</Typography>
-                    <Box
+                  <Box>
+                    <Typography
                       sx={{
-                        display: "flex",
-                        padding: "8px",
-                        borderRadius: "8px",
-                        bgcolor: "#F6F6F6",
+                        fontFamily: "SF Pro",
+                        color: "#767676",
+                        fontSize: "16px",
                       }}
                     >
-                      <Typography sx={ingeredientStyle}>
-                        {food.ingeredient}
-                      </Typography>
-                    </Box>
-                  </Stack>
-                  <Typography sx={subTitle}>{"Тоо"}</Typography>
+                      {food.ingeredient}
+                    </Typography>
+                  </Box>
                   <Stack
                     direction={"row"}
-                    justifyContent={"space-between"}
+                    justifyContent={"center"}
                     alignItems="center"
-                    spacing={"20px"}
-                    // flexWrap="nowrap"
+                    spacing={"8px"}
+                    flexWrap="nowrap"
                   >
                     <Button
                       variant="outlined"
                       // onClick={subFood}
                       sx={{
-                        width: "45px",
                         borderRadius: "10px",
                         bgcolor: "#18BA51",
+                        width: "45px",
                         height: "45px",
                         display: "flex",
                         padding: "5px",
@@ -165,20 +195,6 @@ const ShoppingDrawer = () => {
                       <AddIcon />
                     </Button>
                   </Stack>
-                  <Button
-                    // onClick={handleHold}
-                    sx={{
-                      borderRadius: "4px",
-                      bgcolor: "#18BA51",
-                      display: "flex",
-                      padding: "8px 16px",
-                      justifyContent: "center",
-                      alignItems: "center",
-                      color: "#fff",
-                    }}
-                  >
-                    {"Сагслах"}
-                  </Button>
                 </Stack>
                 <Box
                   // onClick={handleClose}
@@ -187,10 +203,42 @@ const ShoppingDrawer = () => {
                   <CloseIcon />
                 </Box>
               </Stack>
-            </Box>
-          </div>
-        );
-      })}
+            </Stack>
+          );
+        })}
+      </Stack>
+      <Stack
+        height={"172px"}
+        direction="row"
+        p="10px 32px 30px"
+        justifyContent={"space-between"}
+        alignItems="center"
+      >
+        <Stack width={"50%"}>
+          <Typography fontFamily={"Poppins"} color="#5E6166" fontSize={"18px"}>
+            {"Нийт төлөх дүн"}
+          </Typography>
+          <Typography fontFamily={"Poppins"} fontWeight="700" fontSize={"18px"}>
+            {sum}
+            {"₮"}
+          </Typography>
+        </Stack>
+        <Stack width={"50%"}>
+          <Button
+            sx={{
+              borderRadius: "4px",
+              bgcolor: "#18BA51",
+              display: "flex",
+              padding: "8px 16px",
+              justifyContent: "center",
+              alignItems: "center",
+              color: "#fff",
+            }}
+          >
+            {"Сагслах"}
+          </Button>
+        </Stack>
+      </Stack>
     </Stack>
   );
 

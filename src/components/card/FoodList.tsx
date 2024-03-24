@@ -7,7 +7,6 @@ import Cards from "./Cards";
 const FoodList = () => {
   const [cat, setCat] = React.useState<string>("Breakfast");
   function handlerSubmit(item: string) {
-    console.log("lol", item);
     setCat(item);
   }
   return (
