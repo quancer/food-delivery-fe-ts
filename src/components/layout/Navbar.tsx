@@ -14,6 +14,7 @@ import MenuItem from "@mui/material/MenuItem";
 import { Pinecone } from "../svg/PineconeLogo";
 import LocalGroceryStoreIcon from "@mui/icons-material/LocalGroceryStore";
 import PersonIcon from "@mui/icons-material/Person";
+import { CustomContext } from "@/context/ShoppingCard";
 const pages = ["Нүүр", "Хоолны цэс", "Хүргэлтийн бүс"];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 export default function Navbar() {
@@ -30,7 +31,7 @@ export default function Navbar() {
   const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElUser(event.currentTarget);
   };
-
+  const { foodId, setFoodId } = React.useContext(CustomContext);
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
   };
@@ -38,7 +39,7 @@ export default function Navbar() {
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
-
+  console.log("foods", foodId);
   return (
     <AppBar position="static" sx={{ background: "#fff", color: "#333" }}>
       <Container maxWidth="xl">
