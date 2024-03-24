@@ -5,7 +5,7 @@ import { relative } from "path";
 
 const Showcase = () => {
   return (
-    <Box bgcolor={"#18BA51"} height={"788px"}>
+    <Box bgcolor={"#18BA51"} height={"788px"} position="relative">
       <Box position={"absolute"} top={0} left={0} right={0} bottom={0}>
         <BgImage />
       </Box>
