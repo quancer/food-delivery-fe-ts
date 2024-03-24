@@ -73,6 +73,8 @@ export default function MediaCard({ food }: { food: dataType }) {
       foodName: food.title,
       count: buyCount,
     };
+    // empty array
+    // setFoodId([]);
     setFoodId([...foodId, newFood]);
     handleClose();
   };

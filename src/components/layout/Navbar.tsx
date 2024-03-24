@@ -15,8 +15,21 @@ import { Pinecone } from "../svg/PineconeLogo";
 import LocalGroceryStoreIcon from "@mui/icons-material/LocalGroceryStore";
 import PersonIcon from "@mui/icons-material/Person";
 import { CustomContext } from "@/context/ShoppingCard";
+import Badge, { BadgeProps } from "@mui/material/Badge";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import { styled } from "@mui/material/styles";
+
 const pages = ["Нүүр", "Хоолны цэс", "Хүргэлтийн бүс"];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
+const StyledBadge = styled(Badge)<BadgeProps>(({ theme }) => ({
+  "& .MuiBadge-badge": {
+    right: -3,
+    top: 13,
+    border: `2px solid ${theme.palette.background.paper}`,
+    padding: "0 4px",
+  },
+}));
+
 export default function Navbar() {
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
     null
@@ -35,11 +48,9 @@ export default function Navbar() {
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
   };
-
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
-  console.log("foods", foodId);
   return (
     <AppBar position="static" sx={{ background: "#fff", color: "#333" }}>
       <Container maxWidth="xl">
@@ -104,12 +115,13 @@ export default function Navbar() {
 
           <TextField id="outlined-basic" label="Хайх" variant="outlined" />
 
-          <Button
-            variant={"text"}
-            startIcon={<LocalGroceryStoreIcon />}
-            sx={{ color: "#333" }}
-          >
-            Сагс
+          <IconButton aria-label="cart">
+            <StyledBadge badgeContent={foodId.length} color="secondary">
+              <ShoppingCartIcon />
+            </StyledBadge>
+          </IconButton>
+          <Button variant={"text"} sx={{ color: "#333" }}>
+            <Typography>{"Сагс"}</Typography>
           </Button>
           <Button
             variant="text"
