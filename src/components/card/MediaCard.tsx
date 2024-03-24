@@ -69,7 +69,6 @@ export default function MediaCard({ food }: { food: dataType }) {
       price: food.price,
       count: buyCount,
     };
-
     // empty array
     // setFoodId([]);
     setFoodId([...foodId, hold]);
