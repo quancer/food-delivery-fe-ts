@@ -7,8 +7,6 @@ import Link from "@mui/material/Link";
 
 import { ShoppingDrawer } from "../shoppingDraw/ShoppingDrawer";
 
-const pages = ["Нүүр", "Хоолны цэс", "Хүргэлтийн бүс"];
-const settings = ["Profile", "Account", "Dashboard", "Logout"];
 const linkTextStyle = {
   fontFamily: "SF Pro Text",
   fontSize: "14px",
@@ -19,26 +17,7 @@ const linkTextStyle = {
   textTransform: "uppercase",
 };
 
-export default function Navbar() {
-  const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
-    null
-  );
-  const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(
-    null
-  );
-
-  const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
-    setAnchorElNav(event.currentTarget);
-  };
-  const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
-    setAnchorElUser(event.currentTarget);
-  };
-  const handleCloseNavMenu = () => {
-    setAnchorElNav(null);
-  };
-  const handleCloseUserMenu = () => {
-    setAnchorElUser(null);
-  };
+const Navbar = () => {
   return (
     <Stack>
       <Container maxWidth={"lg"}>
@@ -91,27 +70,5 @@ export default function Navbar() {
       </Container>
     </Stack>
   );
-}
-
-// <AppBar position="static" sx={{ background: "#fff", color: "#333" }}>
-//   <Container maxWidth="xl">
-//     <Toolbar disableGutters sx={{ gap: "5px" }}>
-//       <IconButton aria-label="cart">
-//         <StyledBadge badgeContent={foodId.length} color="secondary">
-//           <ShoppingCartIcon />
-//         </StyledBadge>
-//       </IconButton>
-//       <Button variant={"text"} sx={{ color: "#333" }}>
-//         <Typography>{"Сагс"}</Typography>
-//       </Button>
-//       <Button
-//         variant="text"
-//         startIcon={<PersonIcon />}
-//         sx={{ color: "#333" }}
-//         href="/login"
-//       >
-//         Нэвтрэх
-//       </Button>
-//     </Toolbar>
-//   </Container>
-// </AppBar>
+};
+export default Navbar;

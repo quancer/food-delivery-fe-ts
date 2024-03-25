@@ -1,7 +1,7 @@
+/* eslint-disable no-secrets/no-secrets */
 import { CardMedia, Divider, Typography } from "@mui/material";
 import { Box, Stack } from "@mui/system";
 import BgImage from "../svg/BgImage";
-import { relative } from "path";
 
 const Showcase = () => {
   return (

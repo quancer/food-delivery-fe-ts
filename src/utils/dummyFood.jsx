@@ -1,3 +1,4 @@
+// eslint-disable-next-line unicorn/filename-case
 const foods = [
   {
     title: "Өглөөний цай",

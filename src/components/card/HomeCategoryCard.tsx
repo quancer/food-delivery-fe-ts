@@ -1,14 +1,12 @@
-import foods from "@/utils/dummyFood";
+import foods from "@/utils/DummyFood";
 import { Grid, Typography } from "@mui/material";
 import { Container, Stack } from "@mui/system";
 import Link from "next/link";
 import CategorySvg from "../svg/CategorySvg";
-import MediaCard from "./MediaCard";
+import { MediaCard } from "./MediaCard";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 const CategoryCards = ({ category }: { category: string }) => {
-  const categoryFoods = foods.filter(
-    (item, index) => item.category == category
-  );
+  const categoryFoods = foods.filter((item) => item.category == category);
   return (
     <Container maxWidth="lg" sx={{ padding: "20px 0" }}>
       <Stack
@@ -16,6 +14,8 @@ const CategoryCards = ({ category }: { category: string }) => {
         alignItems={"center"}
         justifyContent={"space-between"}
         my={4}
+        position={"relative"}
+        zIndex={10}
       >
         <Stack direction={"row"} alignItems={"center"} spacing={1}>
           <CategorySvg />
@@ -34,7 +34,7 @@ const CategoryCards = ({ category }: { category: string }) => {
         {categoryFoods.map((item, index) => {
           if (index < 4)
             return (
-              <Grid item xs={3}>
+              <Grid item xs={3} key={item.title}>
                 <MediaCard food={item} key={item.title} />
               </Grid>
             );

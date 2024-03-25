@@ -1,4 +1,5 @@
 import LoginComponents from "../components/login/LoginComponents";
-export default function Page() {
+const Page = () => {
   return <LoginComponents />;
-}
+};
+export default Page;

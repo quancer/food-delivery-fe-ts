@@ -24,7 +24,6 @@ const CustomContext = createContext<CustomePropsContext>({
 const CustomContextProvider = ({ children }: customContextProvideProps) => {
   const [foodId, setFoodId] = useState(shopFood);
   console.log(foodId);
-
   return (
     <CustomContext.Provider value={{ foodId, setFoodId }}>
       {children}

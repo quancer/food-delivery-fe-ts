@@ -1,6 +1,6 @@
 import * as React from "react";
 import dummyCategory from "@/utils/dummyCategory";
-import { bgcolor, Container, Stack } from "@mui/system";
+import { Container, Stack } from "@mui/system";
 import Button from "@mui/material/Button";
 import Cards from "./Cards";
 
@@ -17,9 +17,10 @@ const FoodList = () => {
         justifyContent="space-between"
         my={3}
       >
-        {dummyCategory.map((item) =>
+        {dummyCategory.map((item, index) =>
           item == cat ? (
             <Button
+              key={index}
               variant="outlined"
               sx={{
                 // ".css-1iiyj24-MuiButtonBase-root-MuiButton-root": {
@@ -36,6 +37,7 @@ const FoodList = () => {
             </Button>
           ) : (
             <Button
+              key={index}
               sx={{ width: "100%", border: "1px solid #D6D8DB", color: "#000" }}
               onClick={() => handlerSubmit(item)}
             >
