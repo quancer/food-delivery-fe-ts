@@ -91,14 +91,12 @@ const ShoppingDrawer = () => {
 
   return (
     <div>
-      <Button onClick={toggleDrawer(true)}>
-        <IconButton aria-label="cart">
-          <StyledBadge badgeContent={foodId.length} color="secondary">
-            <ShoppingCartIcon />
-          </StyledBadge>
-        </IconButton>
-        <Typography>Сагс</Typography>
-      </Button>
+      <IconButton aria-label="cart">
+        <StyledBadge badgeContent={foodId.length} color="secondary">
+          <Typography>Сагс</Typography>
+          <ShoppingCartIcon />
+        </StyledBadge>
+      </IconButton>
       <Drawer open={open} onClose={toggleDrawer(false)}>
         {DrawerList}
       </Drawer>
