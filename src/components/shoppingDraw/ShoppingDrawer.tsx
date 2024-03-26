@@ -91,7 +91,7 @@ const ShoppingDrawer = () => {
 
   return (
     <div>
-      <IconButton aria-label="cart">
+      <IconButton aria-label="cart" onClick={toggleDrawer(true)}>
         <StyledBadge badgeContent={foodId.length} color="secondary">
           <Typography>Сагс</Typography>
           <ShoppingCartIcon />

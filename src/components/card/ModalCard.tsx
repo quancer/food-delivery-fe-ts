@@ -62,7 +62,7 @@ export const ModalCard = ({ food }: { food: dataType }) => {
   };
   return (
     <div>
-      <Button onClick={handleOpen}>Сагслах</Button>
+      <Button onClick={handleOpen}>Дэлгэрэнгүй</Button>
       <Modal
         aria-labelledby="transition-modal-title"
         aria-describedby="transition-modal-description"

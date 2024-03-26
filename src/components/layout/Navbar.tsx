@@ -54,7 +54,7 @@ const Navbar = () => {
                 {"Хоолны цэс"}
               </Link>
               <Link
-                href="#"
+                href="/deliveryzone"
                 underline="none"
                 padding={"8px 16px"}
                 sx={linkTextStyle}
