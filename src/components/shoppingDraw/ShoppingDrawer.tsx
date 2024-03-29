@@ -30,8 +30,6 @@ const ShoppingDrawer = () => {
   foodId.forEach((num) => {
     sum += num.price * num.count;
   });
-
-  console.log("sum", sum);
   const DrawerList = (
     <Stack
       sx={{ width: "600px" }}

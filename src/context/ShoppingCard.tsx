@@ -12,8 +12,8 @@ const shopFood: shopCard[] = [];
 interface CustomePropsContext {
   foodId: shopCard[];
   setFoodId: Dispatch<SetStateAction<shopCard[]>>;
-  allFood: shopCard[];
-  setAllFood: Dispatch<SetStateAction<shopCard[]>>;
+  foodData: shopCard[];
+  setFoodData: Dispatch<SetStateAction<shopCard[]>>;
 }
 interface customContextProvideProps {
   children: React.ReactNode;
@@ -21,16 +21,18 @@ interface customContextProvideProps {
 const CustomContext = createContext<CustomePropsContext>({
   foodId: shopFood,
   setFoodId: () => {},
-  allFood: shopFood,
-  setAllFood: () => {},
+  foodData: shopFood,
+  setFoodData: () => {},
 });
 
 const CustomContextProvider = ({ children }: customContextProvideProps) => {
   const [foodId, setFoodId] = useState(shopFood);
-  const [allFood, setAllFood] = useState(shopFood);
+  const [foodData, setFoodData] = useState(shopFood);
   console.log(foodId);
   return (
-    <CustomContext.Provider value={{ foodId, setFoodId, allFood, setAllFood }}>
+    <CustomContext.Provider
+      value={{ foodId, setFoodId, foodData, setFoodData }}
+    >
       {children}
     </CustomContext.Provider>
   );

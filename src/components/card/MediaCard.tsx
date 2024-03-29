@@ -9,7 +9,7 @@ import { ModalCard } from "./ModalCard";
 import Sale from "../Sale";
 import SalePrice from "../SalePrice";
 type dataType = {
-  id: string;
+  foodId: string;
   sale: number;
   title: string;
   image: string;
@@ -17,7 +17,6 @@ type dataType = {
   category: string;
   price: number;
 };
-
 export const MediaCard = ({ food }: { food: dataType }) => {
   return (
     <Box>

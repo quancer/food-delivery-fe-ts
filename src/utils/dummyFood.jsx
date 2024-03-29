@@ -118,7 +118,6 @@ const foods = [
   {
     foodId: "3",
     sale: 0,
-
     title: "Main pizza",
     image:
       "https://s3-alpha-sig.figma.com/img/1f91/a1b6/d973c90c192043aefe86e4258acae7e6?Expires=1711929600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=Rc6sysrbnJUOK6z60Doex356W7EP8kR5rqL-SXQ7JIOs22L4CgREcPjXvWQfov8a8FrdakfloFQhavDUQkPaFpalh5XbSlzHwJr0ym5EyEOgm2TlIxVkgBmGYNavyubSaB9zrB~Xw1hP06gLAR7gC~80FLEuk2PjwF4ydylyiJUxKh5PdDUCgzAsNr3V5Q1WycDwjm1P0WOKYMvwFsCDBMi7plXgx19vL8IVH7j1E5ikx5pye19nJXLvqb8rv3J2RoDp2wW9xcAxZA5ZH656aZkRhdaTwSWCrFS4rxDIL9en9Ae5ZZ7ohNHFG-vsIpFLYj1b7b4xodupx9baDfKNtQ__",
