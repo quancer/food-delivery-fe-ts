@@ -12,15 +12,15 @@ export const DrawerListCard = ({
 }: {
   setOpen: Dispatch<SetStateAction<boolean>>;
 }) => {
-  const { foodId, setFoodId } = React.useContext(CustomContext);
+  const { foodList, setFoodList } = React.useContext(CustomContext);
   const removeHandle = (prop: number) => {
-    const newFood = foodId.filter((data, item) => item != prop);
+    const newFood = foodList.filter((data, item) => item != prop);
     setOpen(true);
-    setFoodId(newFood);
+    setFoodList(newFood);
   };
   return (
     <Stack>
-      {foodId.map((food, index) => {
+      {foodList.map((food, index) => {
         return (
           <Stack direction={"row"} key={index}>
             <Stack

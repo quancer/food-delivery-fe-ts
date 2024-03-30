@@ -1,6 +1,7 @@
-import { createContext, Dispatch, SetStateAction, useState } from "react";
+import { createContext, Dispatch, SetStateAction, useEffect, useState } from "react";
 
-interface shopCard {
+interface shopCardType {
+  foodId:string;
   title: string;
   image: string;
   ingeredient: string;
@@ -8,30 +9,44 @@ interface shopCard {
   price: number;
   count: number;
 }
-const shopFood: shopCard[] = [];
+const shopFood: shopCardType[] = [];
+interface categoryType {
+  categoryId: string;
+  categoryName: string;
+}
+const category: categoryType[] = [];
 interface CustomePropsContext {
-  foodId: shopCard[];
-  setFoodId: Dispatch<SetStateAction<shopCard[]>>;
-  foodData: shopCard[];
-  setFoodData: Dispatch<SetStateAction<shopCard[]>>;
+  foodList: shopCardType[];
+  setFoodList: Dispatch<SetStateAction<shopCardType[]>>;
+  foodData: shopCardType[];
+  setFoodData: Dispatch<SetStateAction<shopCardType[]>>;
+  categoryData: categoryType[];
+  setCategoryData: Dispatch<SetStateAction<categoryType[]>>;
 }
 interface customContextProvideProps {
   children: React.ReactNode;
 }
 const CustomContext = createContext<CustomePropsContext>({
-  foodId: shopFood,
-  setFoodId: () => {},
+  foodList: shopFood,
+  setFoodList: () => {},
   foodData: shopFood,
   setFoodData: () => {},
+  categoryData: category,
+  setCategoryData: () => {}
 });
 
 const CustomContextProvider = ({ children }: customContextProvideProps) => {
-  const [foodId, setFoodId] = useState(shopFood);
+  const [foodList, setFoodList] = useState(shopFood);
   const [foodData, setFoodData] = useState(shopFood);
-  console.log(foodId);
+  const [categoryData, setCategoryData] = useState(category);
+  useEffect(()=>{
+    setFoodList(foodList);
+    setFoodData(foodData);
+    setCategoryData(categoryData);
+  },[])
   return (
     <CustomContext.Provider
-      value={{ foodId, setFoodId, foodData, setFoodData }}
+      value={{ foodList, setFoodList, foodData, setFoodData,categoryData, setCategoryData }}
     >
       {children}
     </CustomContext.Provider>

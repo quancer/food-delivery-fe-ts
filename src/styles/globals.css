@@ -22,3 +22,14 @@ a {
   width: 100%;
   height: 100%;
 }
+.catergoryBtn {
+  display: flex;
+  padding: 10px 16px;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  border-radius: 4px;
+  background-color: #393939;
+  color:#fff;
+  border: none;
+}

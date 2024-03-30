@@ -20,11 +20,13 @@
     "jsonc-eslint-parser": "^2.4.0",
     "leaflet": "^1.9.4",
     "mnzipcode": "^1.1.1",
+    "nanoid": "^5.0.6",
     "next": "14.1.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-leaflet": "^4.2.1",
-    "typescript-eslint": "^7.3.1"
+    "typescript-eslint": "^7.3.1",
+    "uuid": "^9.0.1"
   },
   "devDependencies": {
     "@types/leaflet": "^1.9.8",

@@ -20,14 +20,14 @@ const StyledBadge = styled(Badge)<BadgeProps>(({ theme }) => ({
 }));
 
 const ShoppingDrawer = () => {
-  const { foodId } = React.useContext(CustomContext);
+  const { foodList } = React.useContext(CustomContext);
   const [open, setOpen] = React.useState(false);
 
   const toggleDrawer = (newOpen: boolean) => () => {
     setOpen(newOpen);
   };
   let sum = 0;
-  foodId.forEach((num) => {
+  foodList.forEach((num) => {
     sum += num.price * num.count;
   });
   const DrawerList = (
@@ -90,7 +90,7 @@ const ShoppingDrawer = () => {
   return (
     <div>
       <IconButton aria-label="cart" onClick={toggleDrawer(true)}>
-        <StyledBadge badgeContent={foodId.length} color="secondary">
+        <StyledBadge badgeContent={foodList.length} color="secondary">
           <Typography>Сагс</Typography>
           <ShoppingCartIcon />
         </StyledBadge>
