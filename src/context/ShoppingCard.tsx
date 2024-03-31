@@ -1,7 +1,13 @@
-import { createContext, Dispatch, SetStateAction, useEffect, useState } from "react";
+import {
+  createContext,
+  Dispatch,
+  SetStateAction,
+  useEffect,
+  useState,
+} from "react";
 
 interface shopCardType {
-  foodId:string;
+  foodId: string;
   title: string;
   image: string;
   ingeredient: string;
@@ -32,21 +38,29 @@ const CustomContext = createContext<CustomePropsContext>({
   foodData: shopFood,
   setFoodData: () => {},
   categoryData: category,
-  setCategoryData: () => {}
+  setCategoryData: () => {},
 });
 
 const CustomContextProvider = ({ children }: customContextProvideProps) => {
   const [foodList, setFoodList] = useState(shopFood);
   const [foodData, setFoodData] = useState(shopFood);
   const [categoryData, setCategoryData] = useState(category);
-  useEffect(()=>{
+  useEffect(() => {
     setFoodList(foodList);
     setFoodData(foodData);
     setCategoryData(categoryData);
-  },[])
+    console.log(categoryData);
+  }, [categoryData]);
   return (
     <CustomContext.Provider
-      value={{ foodList, setFoodList, foodData, setFoodData,categoryData, setCategoryData }}
+      value={{
+        foodList,
+        setFoodList,
+        foodData,
+        setFoodData,
+        categoryData,
+        setCategoryData,
+      }}
     >
       {children}
     </CustomContext.Provider>

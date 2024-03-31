@@ -34,7 +34,7 @@ const CategoryCards = ({ category }: { category: string }) => {
         {categoryFoods.map((item, index) => {
           if (index < 4)
             return (
-              <Grid item xs={3} key={item.title}>
+              <Grid item xs={3} key={index}>
                 <MediaCard food={item} key={item.title} />
               </Grid>
             );

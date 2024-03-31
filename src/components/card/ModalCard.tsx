@@ -31,7 +31,7 @@ const ingeredientStyle = {
   bgColor: "red",
 };
 type dataType = {
-  foodId:string;
+  foodId: string;
   title: string;
   image: string;
   ingeredient: string;
@@ -43,7 +43,7 @@ export const ModalCard = ({ food }: { food: dataType }) => {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
   const [buyCount, setBuyCount] = React.useState(1);
-  const { foodList, setFoodId } = React.useContext(CustomContext);
+  const { foodList, setFoodList } = React.useContext(CustomContext);
   const addFood = () => setBuyCount(buyCount + 1);
   const subFood = () => {
     const newCount = buyCount - 1;
@@ -51,7 +51,7 @@ export const ModalCard = ({ food }: { food: dataType }) => {
   };
   const handleHold = () => {
     const hold = {
-      foodId:food.foodId,
+      foodId: food.foodId,
       title: food.title,
       image: food.image,
       ingeredient: food.ingeredient,
@@ -59,7 +59,7 @@ export const ModalCard = ({ food }: { food: dataType }) => {
       price: food.price,
       count: buyCount,
     };
-    setFoodId([...foodList, hold]);
+    setFoodList([...foodList, hold]);
     handleClose();
   };
   return (

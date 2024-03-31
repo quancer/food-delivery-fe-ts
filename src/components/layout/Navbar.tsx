@@ -61,6 +61,14 @@ const Navbar = () => {
               >
                 {"Хүргэлтийн бүс"}
               </Link>
+              <Link
+                href="/create"
+                underline="none"
+                padding={"8px 16px"}
+                sx={linkTextStyle}
+              >
+                {"Шинээр үүсгэх"}
+              </Link>
             </Stack>
           </Stack>
           <Stack direction={"row"} alignItems="center" spacing={"8px"}>
