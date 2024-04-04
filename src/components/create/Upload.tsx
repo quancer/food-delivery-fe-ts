@@ -92,7 +92,7 @@ const UploadImg = ({ imageUrl, setImageUrl }: imageUrlType) => {
       )}
       <Stack direction={"row"}>
         <input type="file" onChange={fileChangeHandler} />
-        <button onClick={uploadHandler}>Upload shd</button>
+        {/* <button onClick={uploadHandler}>Upload shd</button> */}
       </Stack>
       <Box>{imageUrl && <img src={imageUrl} alt="uploaded" />}</Box>
     </Stack>

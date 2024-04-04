@@ -31,6 +31,7 @@ interface CustomePropsContext {
 }
 interface customContextProvideProps {
   children: React.ReactNode;
+  data: any;
 }
 const CustomContext = createContext<CustomePropsContext>({
   foodList: shopFood,
@@ -41,16 +42,25 @@ const CustomContext = createContext<CustomePropsContext>({
   setCategoryData: () => {},
 });
 
-const CustomContextProvider = ({ children }: customContextProvideProps) => {
+const CustomContextProvider = ({
+  children,
+  data,
+}: customContextProvideProps) => {
   const [foodList, setFoodList] = useState(shopFood);
   const [foodData, setFoodData] = useState(shopFood);
   const [categoryData, setCategoryData] = useState(category);
   useEffect(() => {
+    const ssr = async () => {
+      const res = await fetch("http://localhost:4000/api/category");
+      const datas = await res.json();
+      console.log("contextData", datas);
+      setCategoryData(datas.categories);
+    };
+    ssr();
     setFoodList(foodList);
     setFoodData(foodData);
-    setCategoryData(categoryData);
     console.log(categoryData);
-  }, [categoryData]);
+  }, []);
   return (
     <CustomContext.Provider
       value={{
@@ -67,3 +77,11 @@ const CustomContextProvider = ({ children }: customContextProvideProps) => {
   );
 };
 export { CustomContext, CustomContextProvider };
+export async function getServerSideProps() {
+  // Fetch data from external API
+  const res = await fetch("http://localhost:4000/api/category");
+  const data = await res.json();
+  console.log("ssr", data);
+  // Pass data to the page via props
+  return { props: { data } };
+}
