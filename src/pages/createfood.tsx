@@ -1,4 +1,4 @@
-import CreateFood from "@/create/CreateFood";
+import CreateFood from "@/components/create/CreateFood";
 
 const Page = () => {
   return (

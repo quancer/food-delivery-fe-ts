@@ -17,8 +17,8 @@ interface shopCardType {
 }
 const shopFood: shopCardType[] = [];
 interface categoryType {
-  categoryId: string;
-  categoryName: string;
+  _id?: string;
+  categoryName?: string;
 }
 const category: categoryType[] = [];
 interface CustomePropsContext {

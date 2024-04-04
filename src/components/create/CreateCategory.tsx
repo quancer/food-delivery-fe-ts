@@ -8,6 +8,7 @@ import { Stack } from "@mui/system";
 import CloseIcon from "@mui/icons-material/Close";
 import { TextField } from "@mui/material";
 import { CustomContext } from "@/context/ShoppingCard";
+import { Category } from "@mui/icons-material";
 const style = {
   position: "absolute" as "absolute",
   top: "50%",
@@ -26,14 +27,21 @@ export default function BasicModal() {
   const { categoryData, setCategoryData } = React.useContext(CustomContext);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-  const handleSubmit = (e: any) => {
+  const handleSubmit = async (e: any) => {
     e.preventDefault();
-    const newCategory = {
-      categoryId: nanoid(),
-      categoryName: e.target.categoryName.value,
-    };
-    setCategoryData([...categoryData, newCategory]);
-
+    const newCategory = { categoryName: e.target.categoryName.value };
+    const res = await fetch("http://localhost:4000/api/category", {
+      body: JSON.stringify(newCategory),
+      method: "POST",
+      mode: "cors",
+      headers: {
+        Accept: "application.json",
+        "Content-Type": "application/json",
+      },
+    });
+    const data = await res.json();
+    console.log("data", data.categories);
+    setCategoryData(data.categories);
     handleClose();
   };
 
@@ -87,6 +95,16 @@ export default function BasicModal() {
           </form>
         </Box>
       </Modal>
+      <div>
+        {categoryData?.map((data, index) => {
+          return (
+            <div key={index}>
+              <span>{data._id}</span>
+              <span>{data.categoryName}</span>
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 }
