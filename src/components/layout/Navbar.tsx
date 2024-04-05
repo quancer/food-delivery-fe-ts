@@ -74,6 +74,7 @@ const Navbar = () => {
           <Stack direction={"row"} alignItems="center" spacing={"8px"}>
             <ShoppingDrawer />
           </Stack>
+          <Link href="/create">Create</Link>
         </Stack>
       </Container>
     </Stack>

@@ -9,6 +9,7 @@ import CloseIcon from "@mui/icons-material/Close";
 import { TextField } from "@mui/material";
 import { CustomContext } from "@/context/ShoppingCard";
 import { Category } from "@mui/icons-material";
+import MoreIcon from "../MoreIcon";
 const style = {
   position: "absolute" as "absolute",
   top: "50%",
@@ -40,11 +41,11 @@ export default function BasicModal() {
       },
     });
     const data = await res.json();
-    console.log("data", data.categories);
     setCategoryData(data.categories);
     handleClose();
   };
 
+  console.log("dataCreate", categoryData);
   return (
     <div>
       <Button
@@ -95,16 +96,23 @@ export default function BasicModal() {
           </form>
         </Box>
       </Modal>
-      <div>
+      <Stack spacing={3} p={2}>
         {categoryData?.map((data, index) => {
           return (
-            <div key={index}>
-              <span>{data._id}</span>
+            <Stack
+              key={index}
+              direction={"row"}
+              alignItems={"center"}
+              spacing={5}
+              justifyContent={"space-between"}
+              width={"200px"}
+            >
               <span>{data.categoryName}</span>
-            </div>
+              <MoreIcon data={data} />
+            </Stack>
           );
         })}
-      </div>
+      </Stack>
     </div>
   );
 }

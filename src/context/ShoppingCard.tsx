@@ -77,11 +77,3 @@ const CustomContextProvider = ({
   );
 };
 export { CustomContext, CustomContextProvider };
-export async function getServerSideProps() {
-  // Fetch data from external API
-  const res = await fetch("http://localhost:4000/api/category");
-  const data = await res.json();
-  console.log("ssr", data);
-  // Pass data to the page via props
-  return { props: { data } };
-}

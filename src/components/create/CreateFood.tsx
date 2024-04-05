@@ -54,6 +54,7 @@ const CreateFood = () => {
       sale: e.target.sale.value,
       categoryId: e.target.cat.value,
     };
+    console.log(newFood);
     const res = await fetch("http://localhost:4000/api/createfood", {
       body: JSON.stringify(newFood),
       method: "POST",
@@ -116,7 +117,7 @@ const CreateFood = () => {
                     onChange={handleChange}
                     name="cat"
                   >
-                    {categoryData.map((data, index) => {
+                    {categoryData?.map((data, index) => {
                       return (
                         <MenuItem key={index} value={data._id}>
                           {data.categoryName}
@@ -126,8 +127,8 @@ const CreateFood = () => {
                   </Select>
                 </FormControl>
               </Box>
-              <input type="submit" value="click" />
               <UploadImg imageUrl={imageUrl} setImageUrl={setImageUrl} />
+              <input type="submit" value="click" />
             </Stack>
           </form>
         </Box>

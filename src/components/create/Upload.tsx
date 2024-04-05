@@ -59,9 +59,9 @@ const UploadImg = ({ imageUrl, setImageUrl }: imageUrlType) => {
           body: data,
         }
       );
-      console.log(res);
+      // console.log(res);
       const resJson = await res.json();
-      console.log(resJson);
+      // console.log(resJson);
       if (resJson.url) {
         setImageUrl(resJson.url);
       }
