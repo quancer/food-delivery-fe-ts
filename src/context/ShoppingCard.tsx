@@ -31,7 +31,6 @@ interface CustomePropsContext {
 }
 interface customContextProvideProps {
   children: React.ReactNode;
-  data: any;
 }
 const CustomContext = createContext<CustomePropsContext>({
   foodList: shopFood,
@@ -42,10 +41,7 @@ const CustomContext = createContext<CustomePropsContext>({
   setCategoryData: () => {},
 });
 
-const CustomContextProvider = ({
-  children,
-  data,
-}: customContextProvideProps) => {
+const CustomContextProvider = ({ children }: customContextProvideProps) => {
   const [foodList, setFoodList] = useState(shopFood);
   const [foodData, setFoodData] = useState(shopFood);
   const [categoryData, setCategoryData] = useState(category);

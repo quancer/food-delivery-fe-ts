@@ -38,6 +38,7 @@ const Login = () => {
     const data = await res.json();
     if (data.token) {
       localStorage.setItem("userToken", data.token);
+      console.log("success");
       router.push("/dashboard");
     }
   };
